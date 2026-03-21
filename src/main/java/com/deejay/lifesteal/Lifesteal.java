@@ -18,9 +18,13 @@ public final class Lifesteal extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new DeathBan(), this);
 
         // --- Register Heart listener & command (with recipes) ---
-        Heart heart = new Heart(this); // pass JavaPlugin instance for recipes
+        Heart heart = new Heart(this);
         getServer().getPluginManager().registerEvents(heart, this);
         getCommand("withdraw").setExecutor(heart);
+
+        // --- Register Hardcore command ---
+        Hardcore hardcore = new Hardcore(this);
+        getCommand("hardcore").setExecutor(hardcore);
     }
 
     @Override
