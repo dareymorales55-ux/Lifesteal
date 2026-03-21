@@ -8,5 +8,5 @@ commands:
     description: Withdraw hearts into items
     usage: /withdraw <amount>
   hardcore:
-    description: Enable hardcore mode
-    usage: /hardcore enable
+    description: Enable/disable hardcore mode
+    usage: /hardcore <true|false>
