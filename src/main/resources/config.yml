@@ -1,0 +1,14 @@
+# Lifesteal Config
+starting-hearts: 10
+hearts-gain-on-kill: 1
+hearts-lost-on-death: 1
+max-hearts: 20
+min-hearts: 1
+
+ban-at-zero-hearts: true
+
+messages:
+  heart-gained: "You gained %amount% heart(s)."
+  heart-withdrew: "Withdrew %amount% heart(s)."
+  player-ban-message: "§c%player% was banned"
+  player-ban-reason: "§cYou were banned"
