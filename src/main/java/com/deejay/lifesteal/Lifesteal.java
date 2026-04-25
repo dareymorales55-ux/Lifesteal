@@ -6,6 +6,9 @@ public final class Lifesteal extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // Create config.yml if it doesn't exist
+        saveDefaultConfig();
+
         getLogger().info("Lifesteal has been enabled!");
     }
 
