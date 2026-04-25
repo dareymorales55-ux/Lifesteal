@@ -2,11 +2,3 @@ name: Lifesteal
 version: 1.0.0
 main: com.deejay.lifesteal.Lifesteal
 api-version: 1.20
-
-commands:
-  withdraw:
-    description: Withdraw hearts into items
-    usage: /withdraw <amount>
-  hardcore:
-    description: Enable/disable hardcore mode
-    usage: /hardcore <true|false>
