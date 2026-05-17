@@ -35,6 +35,7 @@ drop-hearts-with-natural-cause: false
 messages:
   heart-gained: "You gained %amount% heart(s)."
   heart-withdrew: "Withdrew %amount% heart(s)."
+    withdraw-too-much-message: "§cYou must keep at least one heart."
 
   player-ban-message: "§c%player% was banned"
   player-ban-reason: "§cYou were banned"
