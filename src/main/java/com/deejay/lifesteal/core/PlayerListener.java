@@ -10,6 +10,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.time.Instant;
+
 public class PlayerListener implements Listener {
 
     private final Lifesteal plugin;
@@ -23,6 +25,7 @@ public class PlayerListener implements Listener {
     // =========================
     @EventHandler
     public void onFirstJoin(PlayerJoinEvent event) {
+
         Player player = event.getPlayer();
 
         if (!player.hasPlayedBefore()) {
@@ -32,7 +35,7 @@ public class PlayerListener implements Listener {
 
             double health = startingHearts * 2.0;
 
-            player.getAttribute(Attribute.MAX_HEALTH)
+            player.getAttribute(Attribute.GENERIC_MAX_HEALTH)
                     .setBaseValue(health);
 
             player.setHealth(health);
@@ -48,7 +51,7 @@ public class PlayerListener implements Listener {
         Player victim = event.getEntity();
 
         double victimHealth =
-                victim.getAttribute(Attribute.MAX_HEALTH)
+                victim.getAttribute(Attribute.GENERIC_MAX_HEALTH)
                         .getBaseValue();
 
         // =========================
@@ -77,7 +80,7 @@ public class PlayerListener implements Listener {
             newHealth = 0;
         }
 
-        victim.getAttribute(Attribute.MAX_HEALTH)
+        victim.getAttribute(Attribute.GENERIC_MAX_HEALTH)
                 .setBaseValue(newHealth);
 
         // =========================
@@ -101,7 +104,7 @@ public class PlayerListener implements Listener {
                     plugin.getConfig()
                             .getString("messages.player-ban-reason");
 
-            victim.ban(reason, null, null, true);
+            victim.ban(reason, (Instant) null, null, true);
 
             String soundName =
                     plugin.getConfig()
@@ -136,7 +139,7 @@ public class PlayerListener implements Listener {
         }
 
         double killerHealth =
-                killer.getAttribute(Attribute.MAX_HEALTH)
+                killer.getAttribute(Attribute.GENERIC_MAX_HEALTH)
                         .getBaseValue();
 
         String gainValue =
@@ -171,7 +174,7 @@ public class PlayerListener implements Listener {
             finalHealth = maxHealth;
         }
 
-        killer.getAttribute(Attribute.MAX_HEALTH)
+        killer.getAttribute(Attribute.GENERIC_MAX_HEALTH)
                 .setBaseValue(finalHealth);
 
         String message =
