@@ -74,6 +74,18 @@ public class Heart implements Listener, CommandExecutor {
     }
 
     // =========================================================
+    // CREATE MULTIPLE HEARTS
+    // =========================================================
+    public ItemStack createHeart(int amount) {
+
+        ItemStack item = createHeart();
+
+        item.setAmount(amount);
+
+        return item;
+    }
+
+    // =========================================================
     // CREATE RECIPE
     // =========================================================
     public void createRecipe() {
@@ -125,7 +137,8 @@ public class Heart implements Listener, CommandExecutor {
 
         Player player = event.getPlayer();
 
-        ItemStack item = player.getInventory().getItemInMainHand();
+        ItemStack item =
+                player.getInventory().getItemInMainHand();
 
         if (!item.hasItemMeta()) return;
 
@@ -156,6 +169,19 @@ public class Heart implements Listener, CommandExecutor {
 
         item.setAmount(item.getAmount() - 1);
 
+        // =========================
+        // HEART GAIN MESSAGE
+        // =========================
+        String gainedMessage =
+                plugin.getConfig()
+                        .getString("messages.heart-gained")
+                        .replace("%amount%", "1");
+
+        player.sendMessage(gainedMessage);
+
+        // =========================
+        // USE SOUND
+        // =========================
         String soundName =
                 plugin.getConfig()
                         .getString("items.heart.sound-played-on-use");
@@ -239,6 +265,9 @@ public class Heart implements Listener, CommandExecutor {
                 createHeart(amount)
         );
 
+        // =========================
+        // WITHDRAW MESSAGE
+        // =========================
         String message =
                 plugin.getConfig()
                         .getString("messages.heart-withdrew")
@@ -250,17 +279,5 @@ public class Heart implements Listener, CommandExecutor {
         player.sendMessage(message);
 
         return true;
-    }
-
-    // =========================================================
-    // CREATE MULTIPLE HEARTS
-    // =========================================================
-    public ItemStack createHeart(int amount) {
-
-        ItemStack item = createHeart();
-
-        item.setAmount(amount);
-
-        return item;
     }
 }
