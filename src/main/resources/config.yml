@@ -1,11 +1,30 @@
 # Lifesteal Config
+
+# For hearts lost on death and hearts gained on kill:
+# Putting "ALL" as the value makes a player lose all hearts on death
+# or gain all of a player's hearts on kill.
+#
+# Example:
+# If a player with 15 hearts kills someone with 7 hearts:
+# - Killer goes to max hearts (20)
+# - Extra hearts (2) drop on the ground
+
 starting-hearts: 10
+
 hearts-gain-on-kill: 1
 hearts-lost-on-death: 1
+
 max-hearts: 20
 min-hearts: 1
 
 ban-at-zero-hearts: true
+
+# If false:
+# Players only drop hearts when killed by another player
+#
+# If true:
+# Natural deaths also drop hearts
+drop-hearts-with-natural-cause: false
 
 messages:
   heart-gained: "You gained %amount% heart(s)."
