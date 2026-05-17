@@ -10,6 +10,7 @@
 # - Extra hearts (2) drop on the ground
 
 starting-hearts: 10
+revive-hearts: 3
 
 hearts-gain-on-kill: 1
 hearts-lost-on-death: 1
@@ -40,3 +41,60 @@ messages:
 
 # Global sound played when a player is banned
 player-ban-sound: "ENTITY_WITHER_SPAWN"
+
+# =========================================================
+# Items
+# =========================================================
+
+items:
+
+  # =======================================================
+  # Heart Item
+  # =======================================================
+  heart:
+
+    item-name: "§4Heart"
+
+    # Bukkit/Paper Sound Enum
+    sound-played-on-use: "BLOCK_RESPAWN_ANCHOR_CHARGE"
+
+    # Bukkit Material Enum
+    base-item: "NETHER_STAR"
+
+    enchant-glint: true
+
+    recipe:
+      shape:
+        - "N N"
+        - "NOI"
+        - "N N"
+
+      ingredients:
+        N: "NAUTILUS_SHELL"
+        O: "OMINOUS_TRIAL_KEY"
+        I: "NETHERITE_INGOT"
+
+  # =======================================================
+  # Revive Beacon
+  # =======================================================
+  revive-beacon:
+
+    item-name: "§2Revive Beacon"
+
+    # Bukkit/Paper Sound Enum
+    sound-played-on-use: "BLOCK_BEACON_POWER_SELECT"
+
+    enchant-glint: true
+
+    recipe:
+      shape:
+        - "HCH"
+        - "EHG"
+        - "IGI"
+
+      ingredients:
+        H: "NETHER_STAR"
+        C: "HEAVY_CORE"
+        E: "ELYTRA"
+        G: "ENCHANTED_GOLDEN_APPLE"
+        I: "NETHERITE_INGOT"
