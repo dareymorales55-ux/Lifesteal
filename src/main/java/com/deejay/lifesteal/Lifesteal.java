@@ -9,6 +9,9 @@ public final class Lifesteal extends JavaPlugin {
     @Override
     public void onEnable() {
 
+        // Create config.yml if it doesn't exist
+        saveDefaultConfig();
+
         getServer().getPluginManager().registerEvents(
                 new PlayerListener(this),
                 this
