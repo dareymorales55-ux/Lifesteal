@@ -1,0 +1,111 @@
+# =========================================================
+# Lifesteal Config
+# =========================================================
+
+# Hearts given to a player when they join for the first time.
+starting-hearts: 10
+
+# Hearts given to a player when revived.
+revive-hearts: 3
+
+# Hearts gained when killing a player.
+# Can be a number or "ALL".
+hearts-gain-on-kill: 1
+
+# Hearts lost when dying.
+# Can be a number or "ALL".
+hearts-lost-on-death: 1
+
+# Maximum hearts a player can have.
+max-hearts: 20
+
+# If a player's hearts go BELOW this amount,
+# they are banned.
+#
+# Example:
+# min-hearts: 1
+# Player reaches 0 hearts -> banned
+min-hearts: 1
+
+# If false:
+# Players only drop hearts when killed by another player.
+#
+# If true:
+# Natural deaths also drop hearts.
+drop-hearts-with-natural-cause: false
+
+# =========================================================
+# Messages
+# =========================================================
+
+messages:
+  heart-gained: "You gained %amount% heart(s)."
+  heart-withdrew: "Withdrew %amount% heart(s)."
+
+  player-ban-message: "§c%player% was banned"
+  player-ban-reason: "§cYou were banned"
+
+  withdraw-too-much-message: "§cYou must keep at least one heart."
+
+# =========================================================
+# Sounds
+# =========================================================
+
+# Global sound played when a player is banned.
+player-ban-sound: "ENTITY_WITHER_SPAWN"
+
+# =========================================================
+# Items
+# =========================================================
+
+items:
+
+  # =======================================================
+  # Heart Item
+  # =======================================================
+  heart:
+
+    item-name: "§4Heart"
+
+    # Bukkit/Paper Sound Enum
+    sound-played-on-use: "BLOCK_RESPAWN_ANCHOR_CHARGE"
+
+    # Bukkit Material Enum
+    base-item: "NETHER_STAR"
+
+    enchant-glint: true
+
+    recipe:
+      shape:
+        - "N N"
+        - "NOI"
+        - "N N"
+
+      ingredients:
+        N: "NAUTILUS_SHELL"
+        O: "OMINOUS_TRIAL_KEY"
+        I: "NETHERITE_INGOT"
+
+  # =======================================================
+  # Revive Beacon
+  # =======================================================
+  revive-beacon:
+
+    item-name: "§2Revive Beacon"
+
+    sound-played-on-use: "BLOCK_BEACON_POWER_SELECT"
+
+    enchant-glint: true
+
+    recipe:
+      shape:
+        - "HCH"
+        - "EHG"
+        - "IGI"
+
+      ingredients:
+        H: "NETHER_STAR"
+        C: "HEAVY_CORE"
+        E: "ELYTRA"
+        G: "ENCHANTED_GOLDEN_APPLE"
+        I: "NETHERITE_INGOT"
